@@ -2164,6 +2164,10 @@ img {
     pointer-events: none;
 }
 
+html.hide-preloader .preloader {
+    display: none !important;
+}
+
 .preloader__curtain {
     position: absolute;
     top: 0;

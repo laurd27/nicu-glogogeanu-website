@@ -79,6 +79,13 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Preloader Check (hide immediately if already played) -->
+    <script>
+        if (sessionStorage.getItem('preloaderPlayed')) {
+            document.documentElement.classList.add('hide-preloader');
+        }
+    </script>
 </head>
 
 <body>
