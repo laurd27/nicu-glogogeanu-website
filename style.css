@@ -119,6 +119,17 @@ img {
     display: block;
 }
 
+/* Force hardware acceleration for animated images to prevent blur */
+.service-card__img,
+.gallery__item img,
+.about__image-wrapper img,
+.album-card img {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
 a {
     color: var(--accent);
     text-decoration: none;
