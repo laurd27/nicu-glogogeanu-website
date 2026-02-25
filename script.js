@@ -174,7 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (images.length === 0) {
             html = '<div style="color:var(--text-muted); padding:40px;">Nu s-au găsit fotografii în folder.</div>';
         } else {
-            images.forEach((imgFile, i) => {
+            // Skip the first image (index 0) as it is used for the page hero
+            const galleryImages = images.slice(1);
+            galleryImages.forEach((imgFile, i) => {
                 const num = (i + 1).toString().padStart(2, '0');
                 const imgSrc = `images/${category}/${imgFile}`;
 

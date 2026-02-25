@@ -94,37 +94,34 @@
                     </p>
                 </div>
 
-                <!-- Right: Scrolling Gallery -->
-                <div class="portfolio-split__gallery">
-                    <div class="album-info reveal">
-                        <div class="album-info__count">Album <strong>Trash the Dress</strong> — 3 fotografii</div>
-                        <div class="album-info__hint">Click pentru mărire</div>
-                    </div>
-
-                    <div class="album-grid stagger-children" data-category="trash-the-dress">
-                        <div class="album-card reveal">
-                            <img src="images/trash-the-dress/2.jpg"
-                                alt="Trash the Dress – cuplu pe plajă, fotograf Pitești" loading="lazy">
-                            <span class="album-card__number">01</span>
-                            <div class="album-card__overlay"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                                    </svg></span></div>
+                <!-- Right: Featured Slider -->
+                <div class="portfolio-split__slider reveal--right">
+                    <div class="swiper portfolio-swiper">
+                        <div class="swiper-wrapper" id="portfolioSwiperWrapper">
+                            <!-- Slides dynamically injected here -->
                         </div>
-                        <div class="album-card reveal">
-                            <img src="images/trash-the-dress/3.jpg"
-                                alt="Trash the Dress – creativitate și libertate, fotograf Craiova" loading="lazy">
-                            <span class="album-card__number">02</span>
-                            <div class="album-card__overlay"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                                    </svg></span></div>
-                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Gallery Section -->
+    <section class="section portfolio-gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-header__tag">Album Complet</p>
+                <h2 class="section-header__title">Trash the Dress</h2>
+                <div class="section-header__line"></div>
+                <div class="album-info__count"
+                    style="margin-top:15px; font-size:var(--fs-small); color:var(--text-muted);"></div>
+            </div>
+
+            <div class="album-grid stagger-children" data-category="trash-the-dress">
+                <!-- Grid dynamically injected here -->
             </div>
         </div>
     </section>
