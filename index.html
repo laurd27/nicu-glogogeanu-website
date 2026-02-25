@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO -->
+    <title>Nicu Glogogeanu – Fotograf Profesionist Evenimente | Pitești, Craiova, București</title>
+    <meta name="description"
+        content="Fotograf profesionist de evenimente – nuntă, botez, cununie, save the date, trash the dress. Surprind povești autentice prin imagini cinematice în Pitești, Craiova și București.">
+    <meta name="keywords"
+        content="fotograf nunta pitesti, fotograf botez craiova, fotograf cununie bucuresti, fotograf evenimente, nicu glogogeanu, fotograf profesionist">
+    <meta name="author" content="Nicu Glogogeanu">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nicuglogogeanu.ro/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nicu Glogogeanu – Fotograf Profesionist Evenimente">
+    <meta property="og:description"
+        content="Surprind povești autentice prin imagini cinematice. Fotograf de nuntă, botez, cununie, save the date și trash the dress în Pitești, Craiova și București.">
+    <meta property="og:url" content="https://nicuglogogeanu.ro/">
+    <meta property="og:image" content="https://nicuglogogeanu.ro/images/hero/1.webp">
+    <meta property="og:locale" content="ro_RO">
+    <meta property="og:site_name" content="Nicu Glogogeanu Fotograf">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nicu Glogogeanu – Fotograf Profesionist Evenimente">
+    <meta name="twitter:description" content="Surprind povești autentice prin imagini cinematice.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Nicu Glogogeanu – Fotograf Evenimente",
+    "alternateName": "NG Media Studio",
+    "url": "https://nicuglogogeanu.ro",
+    "telephone": "+40766336604",
+    "email": "contact@nicuglogogeanu.ro",
+    "image": "https://nicuglogogeanu.ro/images/hero/1.webp",
+    "description": "Fotograf profesionist de evenimente – nuntă, botez, cununie, save the date, trash the dress.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. PRINCIPALĂ, Nr. 15",
+      "addressLocality": "Comuna Secu",
+      "addressRegion": "Dolj",
+      "addressCountry": "RO"
+    },
+    "priceRange": "$$",
+    "areaServed": ["Pitești", "Craiova", "București", "Argeș", "Dolj"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicii Foto Evenimente",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotograf Nuntă" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotograf Botez" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotograf Cununie" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Save the Date" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trash the Dress" }}
+      ]
+    }
+  }
+  </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0a0a' width='100' height='100' rx='20'/><text x='50' y='68' font-family='Georgia,serif' font-size='45' font-weight='bold' fill='%23d4a853' text-anchor='middle'>NG</text></svg>">
+
+    <!-- CDNs for Animations & Sliders -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js" defer></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ═══ PRELOADER ═══ -->
+    <div class="preloader">
+        <div class="preloader__content">
+            <div class="preloader__counter">0%</div>
+            <div class="preloader__brand">Focalizăm pe detalii...</div>
+        </div>
+        <div class="preloader__curtain preloader__curtain--left"></div>
+        <div class="preloader__curtain preloader__curtain--right"></div>
+    </div>
+
+    <!-- Ambient Background -->
+    <div class="ambient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav" id="mainNav">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-icon">NG</div>
+            <div class="nav__logo-text">
+                Nicu Glogogeanu
+                <span>Fotograf</span>
+            </div>
+        </a>
+
+        <div class="nav__menu" id="navMenu">
+            <a href="index.html" class="nav__link active">Acasă</a>
+            <a href="nunta.html" class="nav__link">Nuntă</a>
+            <a href="botez.html" class="nav__link">Botez</a>
+            <a href="cununie.html" class="nav__link">Cununie</a>
+            <a href="save-the-date.html" class="nav__link">Save the Date</a>
+            <a href="trash-the-dress.html" class="nav__link">Trash the Dress</a>
+            <a href="contact.html" class="nav__cta">Contact</a>
+        </div>
+
+        <div class="nav__hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <img src="images\hero/2.jpeg"
+                alt="Fotografie de nuntă artistică – Nicu Glogogeanu, fotograf profesionist Pitești" loading="eager">
+        </div>
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+            <p class="hero__subtitle-top" style="color: white;">Fotograf de evenimente • Pitești & Craiova</p>
+            <h1 class="hero__title">
+                Povestea voastră,<br>
+                spusă în <em>imagini</em>
+            </h1>
+            <p class="hero__subtitle">
+                Surprind momente autentice și le transform în amintiri care vă vor face să zâmbiți de fiecare dată când
+                le revedeți.
+            </p>
+            <div class="hero__cta-group">
+                <a href="contact.html" class="btn btn--primary">
+                    Verifică Disponibilitatea
+                    <span class="btn__arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg></span>
+                </a>
+                <a href="#servicii" class="btn btn--outline">
+                    Descoperă Portofoliul
+                </a>
+            </div>
+        </div>
+
+        <div class="hero__scroll-hint">
+            <span>Scroll</span>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="section services" id="servicii">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-header__tag">Ce fotografiez</p>
+                <h2 class="section-header__title">Fiecare eveniment are o poveste unică</h2>
+                <div class="section-header__line"></div>
+                <p class="section-header__desc">
+                    De la primele emoții ale cununiei, până la dansul nebun de la nuntă – sunt acolo pentru fiecare
+                    moment care contează.
+                </p>
+            </div>
+
+            <div class="services__grid stagger-children">
+                <!-- Card 1: Cununie -->
+                <a href="cununie.html" class="service-card reveal">
+                    <img class="service-card__img" src="images/cununie/1.jpg"
+                        alt="Fotografie cununie civilă – momente elegante surprinse de Nicu Glogogeanu" loading="lazy">
+                    <div class="service-card__overlay"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">01</span>
+                        <h3 class="service-card__title">Cununie</h3>
+                        <p class="service-card__desc">Eleganță și emoție, de la semnături până la toasturi.</p>
+                        <span class="service-card__link">Vezi portofoliu <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- Card 2: Nuntă (wide) -->
+                <a href="nunta.html" class="service-card reveal">
+                    <img class="service-card__img" src="images/nunta/1.jpg"
+                        alt="Fotografie de nuntă – momente pline de emoție surprinse de Nicu Glogogeanu" loading="lazy">
+                    <div class="service-card__overlay"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">02</span>
+                        <h3 class="service-card__title">Nuntă</h3>
+                        <p class="service-card__desc">Ziua voastră specială, surprinsă frame cu frame.</p>
+                        <span class="service-card__link">Vezi portofoliu <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- Card 3: Botez (wide) -->
+                <a href="botez.html" class="service-card reveal">
+                    <img class="service-card__img" src="images/botez/1.jpg"
+                        alt="Fotografie de botez – zâmbete și momente emoționante" loading="lazy">
+                    <div class="service-card__overlay"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">03</span>
+                        <h3 class="service-card__title">Botez</h3>
+                        <p class="service-card__desc">Celebrarea noii vieți și a iubirii necondiționate.</p>
+                        <span class="service-card__link">Vezi portofoliu <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- Card 4: Save the Date -->
+                <a href="save-the-date.html" class="service-card reveal">
+                    <img class="service-card__img" src="images/save-the-date/1.jpg"
+                        alt="Ședință foto Save the Date – cuplu romantic fotografiat de Nicu Glogogeanu" loading="lazy">
+                    <div class="service-card__overlay"></div>
+                    <div class="service-card__content">
+                        <span class="service-card__number">04</span>
+                        <h3 class="service-card__title">Save the Date</h3>
+                        <p class="service-card__desc">Primul capitol al poveștii voastre de nuntă.</p>
+                        <span class="service-card__link">Vezi portofoliu <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Featured: Trash the Dress (full width) -->
+            <a href="trash-the-dress.html" class="services__featured reveal">
+                <img class="service-card__img" src="images/trash-the-dress/1.jpg"
+                    alt="Ședință foto Trash the Dress – libertate și creativitate" loading="lazy">
+                <div class="service-card__overlay"></div>
+                <div class="service-card__content">
+                    <span class="service-card__number">05</span>
+                    <h3 class="service-card__title">Trash the Dress</h3>
+                    <p class="service-card__desc">
+                        Îndrăzneală, creativitate și distracție pură. Fie că alegi o plajă, o pădure sau un decor urban,
+                        creăm împreună imagini spectaculoase.
+                    </p>
+                    <span class="service-card__link">Vezi portofoliu <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══ MARQUEE ═══ -->
+    <div class="marquee" id="marqueeSection">
+        <div class="marquee__inner">
+            <div class="marquee__part">
+                NUNTĂ • BOTEZ • CUNUNIE • SAVE THE DATE • TRASH THE DRESS •
+            </div>
+            <div class="marquee__part">
+                NUNTĂ • BOTEZ • CUNUNIE • SAVE THE DATE • TRASH THE DRESS •
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="section about" id="despre">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__visual reveal--left">
+                    <div class="about__image-wrapper">
+                        <img src="images/hero/nicu.jpg" alt="Nicu Glogogeanu – fotograf profesionist de evenimente"
+                            loading="lazy">
+                    </div>
+
+                    <div class="about__experience">
+                        <div class="about__experience-number" data-counter="10" data-suffix="+">0</div>
+                        <div class="about__experience-text">Ani experiență</div>
+                    </div>
+                </div>
+
+                <div class="about__text reveal--right">
+                    <p class="about__tag">Despre mine</p>
+                    <h2 class="about__title">
+                        Nu cânt, nu pictez,<br>dar prin <em>fotografie</em><br>spun tot
+                    </h2>
+                    <p class="about__desc">
+                        Sunt Nicu Glogogeanu și fotografia nu e doar meseria mea – e felul în care simt lumea. Fiecare
+                        cadru pe care îl surprind e o emoție, o poveste, o amintire pe care o salvez pentru voi.
+                    </p>
+                    <p class="about__desc">
+                        Lucrez cel mai mult în Pitești și împrejurimi, dar mă bucur să călătoresc oriunde mă poartă
+                        poveștile voastre – în Craiova, București sau în orice colț al țării.
+                    </p>
+
+                    <div class="about__stats">
+                        <div class="about__stat">
+                            <div class="about__stat-number" data-counter="500" data-suffix="+">0</div>
+                            <div class="about__stat-label">Evenimente</div>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-number" data-counter="100" data-suffix="%">0</div>
+                            <div class="about__stat-label">Clienți mulțumiți</div>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-number" data-counter="50" data-suffix="K+">0</div>
+                            <div class="about__stat-label">Fotografii livrate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS (Swiper Slider) ═══ -->
+    <section class="section testimonials" id="testimoniale">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-header__tag">Recenzii</p>
+                <h2 class="section-header__title">Ce spun cei care au lucrat cu mine</h2>
+                <div class="section-header__line"></div>
+            </div>
+
+            <div class="swiper testimonials-slider reveal">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-card__stars">★ ★ ★ ★ ★</div>
+                        <div class="testimonial-card__quote-icon">"</div>
+                        <p class="testimonial-card__text">
+                            Nicu a fost incredibil! A reușit să surprindă exact esența zilei noastre. Fotografiile sunt
+                            superbe, naturale și pline de emoție. Recomand cu mare drag!
+                        </p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">RD</div>
+                            <div>
+                                <div class="testimonial-card__name">Roxana Dumitrescu</div>
+                                <div class="testimonial-card__event">Cununie Civilă</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-card__stars">★ ★ ★ ★ ★</div>
+                        <div class="testimonial-card__quote-icon">"</div>
+                        <p class="testimonial-card__text">
+                            Profesionalism, creativitate și o atitudine super ok. Nicu știe exact ce face și pozele de
+                            la
+                            botez au ieșit fabuloase. Cu siguranță vom colabora și la următoarele evenimente!
+                        </p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">MA</div>
+                            <div>
+                                <div class="testimonial-card__name">Mirel Amza</div>
+                                <div class="testimonial-card__event">Botez</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-card__stars">★ ★ ★ ★ ★</div>
+                        <div class="testimonial-card__quote-icon">"</div>
+                        <p class="testimonial-card__text">
+                            Cel mai bun fotograf pe care l-am putut alege! Nicu a fost discret, rapid și super talentat.
+                            Fotografiile de la nuntă ne-au scos lacrimile de bucurie. Mersi pentru tot!
+                        </p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">GV</div>
+                            <div>
+                                <div class="testimonial-card__name">Georgiana Valentina</div>
+                                <div class="testimonial-card__event">Nuntă</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Pagination & Navigation for Swiper -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+    </section>
+
+    <!-- ═══ FAQ SECTION ═══ -->
+    <section class="section faq" id="faq">
+        <div class="container container--narrow">
+            <div class="section-header reveal">
+                <p class="section-header__tag">Informații utile</p>
+                <h2 class="section-header__title">Întrebări Frecvente</h2>
+                <div class="section-header__line"></div>
+            </div>
+
+            <div class="faq__accordion reveal">
+                <!-- FAQ Item 1 -->
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Câte fotografii livrați la o nuntă?</span>
+                        <div class="faq__icon"></div>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Depinde foarte mult de dinamica evenimentului, numărul de invitați și durata petrecerii. În
+                            general, pentru un pachet complet de nuntă (pregătiri - tort), predau între 800 și 1200 de
+                            fotografii, toate editate profesional.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Cât durează predarea materialelor?</span>
+                        <div class="faq__icon"></div>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Știu că sunteți nerăbdători să vedeți pozele! Oferim un preview (câteva fotografii
+                            reprezentative) în primele 48 de ore. Galeria completă va fi predată în maxim 30-45 de zile
+                            lucrătoare de la data evenimentului.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Vă deplasați și în alte județe sau țări?</span>
+                        <div class="faq__icon"></div>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Cu mare drag! Majoritatea evenimentelor le fotografiem în Pitești, Craiova și București, dar
+                            călătorim oriunde în România sau chiar în străinătate pentru a vă spune povestea. Costurile
+                            de transport și cazare (dacă este cazul) se discută separat.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Semnăm un contract? Cum se procedează cu avansul?</span>
+                        <div class="faq__icon"></div>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Da, colaborarea noastră va fi bazată pe un contract clar care ne protejează pe amândoi.
+                            Pentru rezervarea datei se achită un avans de 20-30% din valoarea pachetului ales, restul
+                            urmând să fie achitat în ziua evenimentului sau la predarea materialelor, conform
+                            înțelegerii.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-section__content reveal">
+                <h2 class="cta-section__title">
+                    Hai să povestim<br>despre <em>ziua voastră</em>
+                </h2>
+                <p class="cta-section__desc">
+                    Fiecare eveniment e unic și merită o abordare personalizată. Contactați-mă și hai să vedem cum putem
+                    transforma momentele voastre speciale în amintiri de neuitat.
+                </p>
+                <a href="contact.html" class="btn btn--primary">
+                    Contactează-mă
+                    <span class="btn__arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand -->
+                <div class="footer__brand">
+                    <a href="index.html" class="nav__logo">
+                        <div class="nav__logo-icon">NG</div>
+                        <div class="nav__logo-text">
+                            Nicu Glogogeanu
+                            <span>Fotograf</span>
+                        </div>
+                    </a>
+                    <p class="footer__brand-desc">
+                        Fotograf profesionist de evenimente – surprind povești autentice prin imagini cinematice în
+                        Pitești, Craiova și București.
+                    </p>
+                    <div class="footer__socials">
+                        <a href="https://www.facebook.com/nicuglogogeanu" target="_blank" rel="noopener"
+                            class="footer__social-link magnetic-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16"
+                                fill="currentColor">
+                                <path
+                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/nicuglogogeanu" target="_blank" rel="noopener"
+                            class="footer__social-link magnetic-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18"
+                                fill="currentColor">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@nicuglogogeanu" target="_blank" rel="noopener"
+                            class="footer__social-link magnetic-btn" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="18" height="18"
+                                fill="currentColor">
+                                <path
+                                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.781 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer__title">Portofoliu</h4>
+                    <div class="footer__links">
+                        <a href="nunta.html" class="footer__link">Nuntă</a>
+                        <a href="botez.html" class="footer__link">Botez</a>
+                        <a href="cununie.html" class="footer__link">Cununie</a>
+                        <a href="save-the-date.html" class="footer__link">Save the Date</a>
+                        <a href="trash-the-dress.html" class="footer__link">Trash the Dress</a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="footer__title">Navigare</h4>
+                    <div class="footer__links">
+                        <a href="index.html" class="footer__link">Acasă</a>
+                        <a href="#despre" class="footer__link">Despre mine</a>
+                        <a href="#testimoniale" class="footer__link">Recenzii</a>
+                        <a href="contact.html" class="footer__link">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer__title">Contact</h4>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.496-4.196-7.092-7.092l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg></span>
+                        <a href="tel:+40766336604" class="footer__link">0766 336 604</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg></span>
+                        <a href="mailto:contact@nicuglogogeanu.ro" class="footer__link">contact@nicuglogogeanu.ro</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg></span>
+                        <span class="footer__link">Pitești, Argeș</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © <span class="footer__year">2026</span> Nicu Glogogeanu. Toate drepturile rezervate.
+                </p>
+                <div class="footer__legal">
+                    <span class="footer__legal-info">S.C. NG Media Studio S.R.L.</span>
+                    <span class="footer__legal-info">CUI: 36267654</span>
+                    <span class="footer__legal-info">J16/1293/2016</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/40766336604" target="_blank" rel="noopener" class="whatsapp-float magnetic-btn"
+        aria-label="Contact on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="currentColor">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 413.6c-33.1 0-65.5-8.9-94-25.7l-6.7-4-69.8 18.3L72 334.8l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
