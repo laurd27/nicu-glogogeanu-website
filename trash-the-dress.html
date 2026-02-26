@@ -16,8 +16,40 @@
     <meta property="og:image" content="https://nicuglogogeanu.ro/images/trash-the-dress/1.jpg">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0a0a' width='100' height='100' rx='20'/><text x='50' y='68' font-family='Georgia,serif' font-size='45' font-weight='bold' fill='%23d4a853' text-anchor='middle'>NG</text></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.css">
+    <link rel="preload" as="image" href="images/trash-the-dress/1.jpg">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Nicu Glogogeanu Fotograf",
+      "image": "https://nicuglogogeanu.ro/images/hero/1.webp",
+      "description": "Fotograf profesionist de evenimente (nuntă, botez, cununie) în Pitești, Craiova și București.",
+      "@id": "https://nicuglogogeanu.ro/",
+      "url": "https://nicuglogogeanu.ro/",
+      "telephone": "+40766336604",
+      "email": "contact@nicuglogogeanu.ro",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pitești",
+        "addressCountry": "RO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.8565,
+        "longitude": 24.8692
+      },
+      "areaServed": ["Pitești", "București", "Craiova", "Argeș"],
+      "sameAs": [
+        "https://www.facebook.com/nicuglogogeanu",
+        "https://www.instagram.com/nicuglogogeanu",
+        "https://www.youtube.com/@nicuglogogeanu"
+      ],
+      "priceRange": "$"
+    }
+    </script>
 </head>
 
 <body>
@@ -35,14 +67,14 @@
             <div class="nav__logo-text">Nicu Glogogeanu<span>Fotograf</span></div>
         </a>
         <div class="nav__menu" id="navMenu">
-            <a href="index.html" class="nav__link">Acasă</a>
-            <a href="nunta.html" class="nav__link">Nuntă</a>
-            <a href="botez.html" class="nav__link">Botez</a>
-            <a href="cununie.html" class="nav__link">Cununie</a>
-            <a href="save-the-date.html" class="nav__link">Save the Date</a>
-            <a href="trash-the-dress.html" class="nav__link">Trash the Dress</a>
-            <a href="video.html" class="nav__link">Video</a>
-            <a href="contact.html" class="nav__cta">Contact</a>
+            <a href="index.html" class="nav__link magnetic-btn">Acasă</a>
+            <a href="nunta.html" class="nav__link magnetic-btn">Nuntă</a>
+            <a href="botez.html" class="nav__link magnetic-btn">Botez</a>
+            <a href="cununie.html" class="nav__link magnetic-btn">Cununie</a>
+            <a href="save-the-date.html" class="nav__link magnetic-btn">Save the Date</a>
+            <a href="trash-the-dress.html" class="nav__link active">Trash the Dress</a>
+            <a href="video.html" class="nav__link magnetic-btn">Video</a>
+            <a href="contact.html" class="nav__cta magnetic-btn">Contact</a>
         </div>
         <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
@@ -51,7 +83,7 @@
     <section class="page-hero">
         <div class="page-hero__bg">
             <img src="images/trash-the-dress/1.jpg" alt="Ședință foto Trash the Dress – Nicu Glogogeanu fotograf"
-                loading="eager">
+                loading="eager" fetchpriority="high">
         </div>
         <div class="page-hero__overlay"></div>
         <div class="page-hero__content">
@@ -60,65 +92,36 @@
         </div>
     </section>
 
-    <!-- Portfolio Split Layout -->
-    <section class="section portfolio-split">
-        <div class="container">
-            <div class="portfolio-split__grid">
-
-                <!-- Left: Sticky Intro Text -->
-                <div class="portfolio-split__text reveal">
-                    <p>
-                        Trash the Dress este punctul culminant – fix momentul reînnoirii de voturi nerostite, dar
-                        într-un
-                        cadru total lipsit de presiunea orarului, invitaților sau regulilor. E momentul în care uitați,
-                        efectiv, că trebuie să aveți grijă de tivul rochiei și doar vă iubiți într-un mod spectaculos
-                        pentru
-                        aparat.
-                    </p>
-                    <p>
-                        Gândiți-vă puțin: nu ne mai grăbește nimeni la restaurant, friptura nu se răcește, iar toată
-                        logistica nunții e o amintire. Putem merge absolut oriunde – pe o plajă sălbatică la răsărit,
-                        într-o
-                        pădure care arată ca din Lord of the Rings, pe creasta unui munte sau chiar pe niște străzi de
-                        oraș
-                        abandonat dacă asta e atmosfera voastră. Rochia aia genială trăiește momentul ei de glorie
-                        supremă
-                        încă o dată, de data asta într-un decor wow!
-                    </p>
-                    <p>
-                        Și, chill, „Trash the Dress" e mai mult o figură de stil – nu trebuie să vă băgați în noroi sau
-                        să
-                        îi dăm foc (decât dacă fix asta vă doriți 😅). Scopul e să fim creativi maxim, expresivi și să
-                        scoatem niște imagini care nu puteau fi realizate cu o zi înainte de nuntă. Curaj, energie de
-                        zile
-                        mari și mult noroc – o să iasă o nebunie curată!
-                    </p>
-                </div>
-
-                <!-- Right: Featured Slider -->
-                <div class="portfolio-split__slider reveal--right">
-                    <div class="swiper portfolio-swiper">
-                        <div class="swiper-wrapper" id="portfolioSwiperWrapper">
-                            <!-- Slides dynamically injected here -->
-                        </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-                </div>
-
+    <!-- Portfolio Intro Text -->
+    <section class="section portfolio-intro">
+        <div class="container container--narrow">
+            <div class="portfolio-intro__content reveal">
+                <p class="portfolio-intro__lead">
+                    Trash the Dress este punctul culminant – fix momentul reînnoirii de voturi nerostite, dar
+                    într-un cadru total lipsit de presiunea orarului, invitaților sau regulilor.
+                </p>
+                <p>
+                    Gândiți-vă puțin: nu ne mai grăbește nimeni la restaurant, friptura nu se răcește, iar toată
+                    logistica nunții e o amintire. Putem merge absolut oriunde – pe o plajă sălbatică la răsărit,
+                    într-o pădure care arată ca din Lord of the Rings, pe creasta unui munte sau chiar pe niște
+                    străzi de oraș abandonat dacă asta e atmosfera voastră. Rochia aia genială trăiește momentul
+                    ei de glorie supremă încă o dată, de data asta într-un decor wow!
+                </p>
+                <p>
+                    Și, chill, „Trash the Dress" e mai mult o figură de stil – nu trebuie să vă băgați în noroi sau
+                    să îi dăm foc (decât dacă fix asta vă doriți 😅). Scopul e să fim creativi maxim, expresivi și
+                    să scoatem niște imagini care nu puteau fi realizate cu o zi înainte de nuntă. Curaj, energie de
+                    zile mari și mult noroc – o să iasă o nebunie curată!
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Full Gallery Section -->
+    <!-- Gallery Section -->
     <section class="section portfolio-gallery">
         <div class="container">
-            <div class="section-header reveal">
-                <p class="section-header__tag">Album Complet</p>
-                <h2 class="section-header__title">Trash the Dress</h2>
-                <div class="section-header__line"></div>
-                <div class="album-info__count"
-                    style="margin-top:15px; font-size:var(--fs-small); color:var(--text-muted);"></div>
+            <div class="portfolio-gallery__header reveal">
+                <div class="album-info__count"></div>
             </div>
 
             <div class="album-grid stagger-children" data-category="trash-the-dress">
@@ -136,7 +139,7 @@
                     Hai să creăm imagini spectaculoase, pline de energie și originalitate. Contactați-mă și planificăm
                     împreună!
                 </p>
-                <a href="contact.html" class="btn btn--primary">Verifică Disponibilitatea <span class="btn__arrow"><svg
+                <a href="contact.html" class="btn btn--primary magnetic-btn">Verifică Disponibilitatea <span class="btn__arrow"><svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="icon">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -199,10 +202,14 @@
         <button class="lightbox__close" aria-label="Închide">✕</button>
         <button class="lightbox__nav lightbox__nav--prev" aria-label="Anterior">‹</button>
         <button class="lightbox__nav lightbox__nav--next" aria-label="Următor">›</button>
+        <span class="lightbox__counter"></span>
         <img class="lightbox__img" src="" alt="Fotografie mărită">
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.js"></script>
+    
+    <!-- Noise & Cursor -->
+    <div class="noise-overlay"></div>
+    
     <script src="script.js"></script>
 </body>
 

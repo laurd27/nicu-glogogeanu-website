@@ -935,6 +935,72 @@ ul {
     transform: translateY(0);
 }
 
+/* ══════════════════════════════════════
+   NOISE OVERLAY (Cinematic Grain)
+   ══════════════════════════════════════ */
+.noise-overlay {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANYi9bAAAACHRSTlMA/////////9ECuS8AAAB/SURBVDjL7ZOxDoAwDAPzE/r/b5XOgQ4sDIyVrkTqcGyfXQj79iil1P9kRpFxxLHGwY6o2kOQR02qjDTRGk2QRw2zTBxp2t1yY6aJI401TrbcGGnIoz07S0gjaEce1bYx0hBHTWvL9RG0s7N15FERo50td5aQRq0X1bYx7uysv6Uv8tXwz18/AAAAAElFTkSuQmCC') repeat 0 0;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+    animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-5%, -10%);
+    }
+
+    20% {
+        transform: translate(-15%, 5%);
+    }
+
+    30% {
+        transform: translate(7%, -25%);
+    }
+
+    40% {
+        transform: translate(-5%, 25%);
+    }
+
+    50% {
+        transform: translate(-15%, 10%);
+    }
+
+    60% {
+        transform: translate(15%, 0%);
+    }
+
+    70% {
+        transform: translate(0%, 15%);
+    }
+
+    80% {
+        transform: translate(3%, 35%);
+    }
+
+    90% {
+        transform: translate(-10%, 10%);
+    }
+}
+
+/* ══════════════════════════════════════
+   CUSTOM CURSOR (REMOVED)
+   ══════════════════════════════════════ */
+
 /* ═══════════════════════════════════════════════════════════════
    ABOUT SECTION
    ═══════════════════════════════════════════════════════════════ */
@@ -1357,9 +1423,174 @@ img {
 /* ═══════════════════════════════════════════════════════════════
    PORTFOLIO / GALLERY (Subpages)
    ═══════════════════════════════════════════════════════════════ */
+
 /* ══════════════════════════════════════
-   SPLIT LAYOUT (Portfolio Pages)
+   PORTFOLIO INTRO (Centered Editorial Text)
    ══════════════════════════════════════ */
+.portfolio-intro {
+    background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-section);
+    position: relative;
+    z-index: 10;
+}
+
+.portfolio-intro__content {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.portfolio-intro__content p {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: var(--space-md);
+}
+
+.portfolio-intro__content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lead paragraph — gold, italic, larger */
+.portfolio-intro__lead {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem) !important;
+    color: var(--accent) !important;
+    font-style: italic;
+    line-height: 1.7 !important;
+    margin-bottom: var(--space-lg) !important;
+    position: relative;
+    padding-bottom: var(--space-lg);
+}
+
+.portfolio-intro__lead::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* ══════════════════════════════════════
+   GALLERY HEADER (Photo Count)
+   ══════════════════════════════════════ */
+.portfolio-gallery__header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+/* ══════════════════════════════════════
+   SKELETON LOADING CARDS
+   ══════════════════════════════════════ */
+.skeleton-card {
+    border-radius: 12px;
+    background: var(--bg-elevated);
+    margin-bottom: var(--space-md);
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-card:nth-child(3n+1) {
+    aspect-ratio: 4/5;
+}
+
+.skeleton-card:nth-child(3n+2) {
+    aspect-ratio: 1/1;
+}
+
+.skeleton-card:nth-child(3n) {
+    aspect-ratio: 3/4;
+}
+
+.skeleton-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(212, 168, 83, 0.06) 40%,
+            rgba(212, 168, 83, 0.1) 50%,
+            rgba(212, 168, 83, 0.06) 60%,
+            transparent 100%);
+    animation: skeletonShimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes skeletonShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ══════════════════════════════════════
+   LIGHTBOX COUNTER & IMPROVED TRANSITIONS
+   ══════════════════════════════════════ */
+.lightbox__counter {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 10;
+    background: rgba(17, 14, 10, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--border-subtle);
+}
+
+.lightbox__img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ══════════════════════════════════════
+   ALBUM CARDS & HOVER EFFECTS
+   ══════════════════════════════════════ */
+.album-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: var(--space-md);
+    cursor: pointer;
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    transform: translateZ(0);
+    /* Hardware acceleration */
+}
+
+.album-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+    will-change: transform, filter;
+}
+
+/* Hover States */
+@media (hover: hover) and (pointer: fine) {
+    .album-card:hover img {
+        transform: scale(1.06);
+        filter: brightness(0.85) contrast(1.1);
+    }
+}
+
+/* Keep old portfolio-split for backwards compatibility but it's no longer used on portfolio pages */
 .portfolio-split {
     background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
     padding-top: var(--space-lg);

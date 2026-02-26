@@ -104,12 +104,19 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    // ── Dynamic Gallery Loader ──
+    // ── Dynamic Gallery Loader (with Preloading) ──
     const albumGrid = document.querySelector('.album-grid[data-category]');
     const albumCountDisplay = document.querySelector('.album-info__count');
+    const PRELOAD_COUNT = 6; // Number of images to preload before showing gallery
 
     if (albumGrid) {
-        albumGrid.innerHTML = '<div style="color:var(--text-muted); padding:40px;">Se încarcă fotografiile...</div>';
+        // Show skeleton shimmer placeholders while loading
+        let skeletonHtml = '';
+        for (let i = 0; i < 9; i++) {
+            skeletonHtml += '<div class="skeleton-card"></div>';
+        }
+        albumGrid.innerHTML = skeletonHtml;
+
         const category = albumGrid.getAttribute('data-category');
 
         fetch(`gallery-api.php?cat=${category}`)
@@ -136,9 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let index = 1;
 
         function tryLoad() {
-            // Nu limităm la 25, mergem până ne dă eroare o imagine ca să știm că s-au terminat pozele
             if (index > 150) {
-                renderGallery(images, category);
+                preloadAndRender(images, category);
                 return;
             }
 
@@ -152,8 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             img.onerror = () => {
-                // Ne oprim din încărcare la prima fisură, înseamnă că nu mai sunt poze secvențiale
-                renderGallery(images, category);
+                preloadAndRender(images, category);
             };
 
             img.src = src;
@@ -162,14 +167,38 @@ document.addEventListener('DOMContentLoaded', () => {
         tryLoad();
     }
 
+    // Preload first N images before rendering the gallery
+    function preloadAndRender(images, category) {
+        const galleryImages = images.slice(1); // Skip hero image
+        const toPreload = galleryImages.slice(0, PRELOAD_COUNT);
+
+        if (toPreload.length === 0) {
+            renderGallery(images, category);
+            return;
+        }
+
+        const preloadPromises = toPreload.map(imgFile => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = resolve;
+                img.onerror = resolve; // Don't block on errors
+                img.src = `images/${category}/${imgFile}`;
+            });
+        });
+
+        Promise.all(preloadPromises).then(() => {
+            renderGallery(images, category);
+        });
+    }
+
     function renderGallery(images, category) {
-        // Update the count text dynamically based on how many images were actually found
+        // Update the count text dynamically
         if (albumCountDisplay) {
+            const galleryCount = Math.max(0, images.length - 1); // Exclude hero
             const categoryNameCapitalized = category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, ' ');
-            albumCountDisplay.innerHTML = `Album <strong>${categoryNameCapitalized}</strong> &mdash; ${images.length} fotografii`;
+            albumCountDisplay.innerHTML = `<strong>${galleryCount}</strong> fotografii`;
         }
         let html = '';
-        let swiperHtml = '';
 
         if (images.length === 0) {
             html = '<div style="color:var(--text-muted); padding:40px;">Nu s-au găsit fotografii în folder.</div>';
@@ -177,46 +206,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Skip the first image (index 0) as it is used for the page hero
             const galleryImages = images.slice(1);
             galleryImages.forEach((imgFile, i) => {
-                const num = (i + 1).toString().padStart(2, '0');
                 const imgSrc = `images/${category}/${imgFile}`;
+                const isEager = i < PRELOAD_COUNT;
+                const locs = ['Pitești', 'București', 'Craiova'];
+                const loc = locs[i % locs.length];
+                const altText = `Fotograf ${category} ${loc} - Nicu Glogogeanu imaginea ${i + 1}`;
 
-                // For gallery grid
                 html += `
                     <div class="album-card reveal">
-                        <img src="${imgSrc}" alt="${category} foto" loading="lazy">
-                        <div class="album-card__overlay"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg></span></div>
-                    </div>
-                `;
-
-                // For swiper slider
-                swiperHtml += `
-                    <div class="swiper-slide">
-                        <img src="${imgSrc}" alt="${category} slider image" loading="lazy">
+                        <img src="${imgSrc}" alt="${altText}" loading="${isEager ? 'eager' : 'lazy'}"${isEager ? ' fetchpriority="high"' : ''}>
                     </div>
                 `;
             });
         }
         albumGrid.innerHTML = html;
-
-        // Populate and init Swiper
-        const swiperWrapper = document.getElementById('portfolioSwiperWrapper');
-        if (swiperWrapper) {
-            swiperWrapper.innerHTML = swiperHtml;
-            if (typeof Swiper !== 'undefined') {
-                new Swiper('.portfolio-swiper', {
-                    loop: images.length > 1,
-                    grabCursor: true,
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                });
-            }
-        }
 
         const newReveals = albumGrid.querySelectorAll('.reveal');
         newReveals.forEach((el, idx) => {
@@ -225,21 +228,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ── Lightbox Gallery ──
+    // ── Lightbox Gallery (Enhanced) ──
     const lightbox = document.querySelector('.lightbox');
     const lightboxImg = document.querySelector('.lightbox__img');
     const lightboxClose = document.querySelector('.lightbox__close');
     const lightboxPrev = document.querySelector('.lightbox__nav--prev');
     const lightboxNext = document.querySelector('.lightbox__nav--next');
+    const lightboxCounter = document.querySelector('.lightbox__counter');
 
     let currentImageIndex = 0;
     let galleryImages = [];
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Global click listener for opening lightbox via Event Delegation
     document.addEventListener('click', (e) => {
         const item = e.target.closest('.gallery__item, .album-card');
         if (item && lightbox) {
-            // Re-query fresh list of possible items
             const galleryItems = document.querySelectorAll('.gallery__item, .album-card');
             galleryImages = Array.from(galleryItems).map(el => {
                 const img = el.querySelector('img');
@@ -290,6 +295,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateLightbox();
             }
         });
+
+        // Touch swipe support for mobile
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left → next
+                    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                } else {
+                    // Swipe right → prev
+                    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                }
+                updateLightbox();
+            }
+        }, { passive: true });
     }
 
     function openLightbox() {
@@ -297,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxImg.src = galleryImages[currentImageIndex];
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            updateCounter();
         }
     }
 
@@ -305,13 +333,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
+    function updateCounter() {
+        if (lightboxCounter) {
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+    }
+
     function updateLightbox() {
         lightboxImg.style.opacity = '0';
+        lightboxImg.style.transform = 'scale(0.95)';
         setTimeout(() => {
             if (galleryImages[currentImageIndex]) {
                 lightboxImg.src = galleryImages[currentImageIndex];
                 lightboxImg.style.opacity = '1';
+                lightboxImg.style.transform = 'scale(1)';
             }
+            updateCounter();
         }, 200);
     }
 
@@ -512,34 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. Custom Cursor
-    const cursor = document.getElementById('customCursor');
-    const cursorText = document.querySelector('.custom-cursor__text');
-
-    if (cursor && !window.matchMedia("(max-width: 768px)").matches) {
-        document.addEventListener('mousemove', (e) => {
-            // Adjust position precisely to center the cursor
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-        });
-
-        const hoverItems = document.querySelectorAll('a, button, .album-card, .service-card');
-        hoverItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-                if (item.classList.contains('album-card') || item.classList.contains('service-card')) {
-                    cursorText.textContent = 'VEZI';
-                } else if (item.classList.contains('swiper-slide')) {
-                    cursorText.textContent = 'DRAG';
-                } else {
-                    cursorText.textContent = '';
-                }
-            });
-            item.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-                cursorText.textContent = '';
-            });
-        });
-    }
+    // 3. Custom Cursor Removed
 
     // 4. Magnetic Buttons
     const magneticBtns = document.querySelectorAll('.magnetic-btn');
@@ -629,20 +639,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevEl: '.swiper-button-prev',
             },
             breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3, // Shows 3 comfortably
-                }
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             }
         });
     }
 
-    // 8. FAQ Accordion Logic
+    // 8. Custom Split Text Reveal for Portfolio Intro
+    const introLeads = document.querySelectorAll('.portfolio-intro__lead');
+    if (introLeads.length > 0 && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        introLeads.forEach(lead => {
+            if (!lead.classList.contains('is-split')) {
+                lead.classList.add('is-split');
+                const words = lead.innerText.split(' ');
+                lead.innerHTML = '';
+                words.forEach(word => {
+                    const span = document.createElement('span');
+                    span.style.display = 'inline-block';
+                    span.style.overflow = 'hidden';
+                    span.style.verticalAlign = 'top';
+                    span.style.paddingRight = '6px';
+                    span.style.lineHeight = '1.2';
+
+                    const innerWord = document.createElement('span');
+                    innerWord.style.display = 'inline-block';
+                    innerWord.style.transform = 'translateY(110%)';
+                    innerWord.style.opacity = '0';
+                    innerWord.innerText = word;
+
+                    span.appendChild(innerWord);
+                    lead.appendChild(span);
+                });
+
+                const innerSpans = lead.querySelectorAll('span > span');
+                gsap.to(innerSpans, {
+                    y: '0%',
+                    opacity: 1,
+                    duration: 0.9,
+                    stagger: 0.04,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: lead,
+                        start: 'top 85%',
+                    }
+                });
+            }
+        });
+    }
+
+    // 9. FAQ Accordion Logic
     const faqQuestions = document.querySelectorAll('.faq__question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {

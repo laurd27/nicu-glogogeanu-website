@@ -17,6 +17,38 @@
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0a0a' width='100' height='100' rx='20'/><text x='50' y='68' font-family='Georgia,serif' font-size='45' font-weight='bold' fill='%23d4a853' text-anchor='middle'>NG</text></svg>">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Nicu Glogogeanu Fotograf",
+      "image": "https://nicuglogogeanu.ro/images/hero/1.webp",
+      "description": "Fotograf profesionist de evenimente (nuntă, botez, cununie) în Pitești, Craiova și București.",
+      "@id": "https://nicuglogogeanu.ro/",
+      "url": "https://nicuglogogeanu.ro/",
+      "telephone": "+40766336604",
+      "email": "contact@nicuglogogeanu.ro",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pitești",
+        "addressCountry": "RO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.8565,
+        "longitude": 24.8692
+      },
+      "areaServed": ["Pitești", "București", "Craiova", "Argeș"],
+      "sameAs": [
+        "https://www.facebook.com/nicuglogogeanu",
+        "https://www.instagram.com/nicuglogogeanu",
+        "https://www.youtube.com/@nicuglogogeanu"
+      ],
+      "priceRange": "$"
+    }
+    </script>
 </head>
 
 <body>
@@ -34,14 +66,14 @@
             <div class="nav__logo-text">Nicu Glogogeanu<span>Fotograf</span></div>
         </a>
         <div class="nav__menu" id="navMenu">
-            <a href="index.html" class="nav__link">Acasă</a>
-            <a href="nunta.html" class="nav__link">Nuntă</a>
-            <a href="botez.html" class="nav__link">Botez</a>
-            <a href="cununie.html" class="nav__link">Cununie</a>
-            <a href="save-the-date.html" class="nav__link">Save the Date</a>
-            <a href="trash-the-dress.html" class="nav__link">Trash the Dress</a>
+            <a href="index.html" class="nav__link magnetic-btn">Acasă</a>
+            <a href="nunta.html" class="nav__link magnetic-btn">Nuntă</a>
+            <a href="botez.html" class="nav__link magnetic-btn">Botez</a>
+            <a href="cununie.html" class="nav__link magnetic-btn">Cununie</a>
+            <a href="save-the-date.html" class="nav__link magnetic-btn">Save the Date</a>
+            <a href="trash-the-dress.html" class="nav__link magnetic-btn">Trash the Dress</a>
             <a href="video.html" class="nav__link active">Video</a>
-            <a href="contact.html" class="nav__cta">Contact</a>
+            <a href="contact.html" class="nav__cta magnetic-btn">Contact</a>
         </div>
         <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
@@ -115,7 +147,7 @@
                     Hai să discutăm despre viziunea voastră. Ofer pachete personalizate cu videografi profesioniști care
                     mă completează perfect.
                 </p>
-                <a href="contact.html" class="btn btn--primary">Cere Ofertă <span class="btn__arrow"><svg
+                <a href="contact.html" class="btn btn--primary magnetic-btn">Cere Ofertă <span class="btn__arrow"><svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="icon">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -202,6 +234,10 @@
         </div>
     </footer>
 
+    
+    <!-- Noise & Cursor -->
+    <div class="noise-overlay"></div>
+    
     <script src="script.js"></script>
 </body>
 
